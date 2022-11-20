@@ -12,11 +12,14 @@ services:
     environment:
       <<: *env-common
     ports:
+      - 3000:3000
       - 8000:8000
     volumes:
       - .:/live-hajimatter:cached
+      - frontend-deps:/live-hajimatter/frontend/node_modules:delegated
       - backend-deps:/live-hajimatter/backend/.venv:delegated
     tty: true
 
 volumes:
+  frontend-deps:
   backend-deps:
